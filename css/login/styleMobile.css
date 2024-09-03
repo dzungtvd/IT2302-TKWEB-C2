@@ -1,0 +1,212 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-size: initial;
+}
+.login{
+    top:5%;
+    width: 80vw;
+    left: 10%;
+    height: 125vw;
+}
+/* tiêu đề */
+.login>.title{
+    width:65vw;
+    height: 30vw;
+    justify-content: center;
+    margin: auto;
+}
+.login>.title>div:first-child{
+    width:30vw;
+    height: 100%;
+}
+.title>div>strong{
+    font-size: 10vw;
+}
+.title>div>em{
+    font-size: 3vw;
+}
+/* Slogan */
+.Slogan{
+    height: 3vw;
+}
+/* phần nhập liệu */
+.login_Input{
+    width:70vw;
+    height: 50vw;
+    margin: 2vw 5vw;
+}
+/* số tài khoản và mật khẩu */
+.login_Input>input{
+    height: 9vw;
+    font-size: 5vw;
+}
+.announceAtInput{
+    color: red;
+    font-size: 4vw;
+    height: 6vw;
+    width: 60vw;
+}
+/* xác minh người và nút xác nhận */
+.login_Input>div:last-child{
+    margin: 15vw 0;
+    height: 20vw;
+    justify-content: space-between;
+}
+/* ô xác nhận người */
+.login_Input>div:last-child{
+    margin: 1vw 0;
+}
+#notRobot{
+    width: 80%;
+}
+#notRobot>div:last-child{
+    position: relative;
+}
+/* ô checkbox */
+#notRobot input{
+    position: absolute;
+    top:.5vw;
+    width: 7vw;
+    height: 7vw;
+    z-index: 999;
+}
+#notRobot>div>div:last-child{
+    position: absolute;
+    left: 10vw;
+    top:.7vw;
+    font-size: 4vw;
+}
+/* nút xác nhận đăng nhập*/
+.login_Input>div:nth-child(5)>a{
+    height: 15vw;
+    width: 15vw;
+    margin-top: 5vw;
+}
+.login_Input>div:nth-child(5)>a>i{
+    font-size: 7vw;
+}
+/*Nút đăng kí nhanh */
+.signUp{
+    width: 50vw;
+}
+.signUp>a{
+    font-size: 4vw;
+    top:5vw;
+}
+/* phần nhập liệu đăng kí */
+.signup_Input{
+    width:70vw;
+    height: 90vw;
+    margin: auto;
+}
+/* số tài khoản và mật khẩu */
+.signup_Input>input{
+    height: 10vw;
+    font-size: 5vw;
+}
+.announceAtInputDK{
+    font-size: 4vw;
+}
+/* xác minh người và nút xác nhận */
+.signup_Input>div:last-child{
+    margin: 10vw 0;
+    height: 5vw;
+}
+/* ô xác nhận người */
+.signup_Input>div:last-child{
+    margin: 1vw 0;
+}
+#notRobotDK{
+    width: 80%;
+}
+/* ô checkbox */
+#notRobotDK input{
+    top:5vw;
+    width: 8.5vw;
+    height: 8.5vw;
+}
+#notRobotDK>div>div:last-child{
+    left: 13vw;
+    top:4.5vw;
+    font-size: 4vw;
+    width: 30vw;
+}
+/* nút xác nhận đăng kí*/
+.signup_Input>div:nth-child(7)>a{
+    height: 15vw;
+    width: 15vw;
+    margin-top: 8vw;
+}
+.signup_Input>div:nth-child(7)>a>i{
+    font-size: 10vw;
+}
+/*Nút đăng nhập */
+.loGin{
+    width: 25vw;
+}
+.loGin>a{
+    font-size: 5vw;
+    top:-2vw;
+}
+/* Quên mật khẩu */
+.forgetPass{
+    width: 70vw;
+    height: 10vw;
+    margin: auto;
+}
+.forgetPass>a{
+    font-size: 4vw;
+    bottom: 27vw;
+    left: 5vw;
+}
+.forgetPass>div{
+    font-size: 3.5vw;
+    bottom: 22vw;
+    left: 2vw;
+}
+.forgetPass>div>.contact_icons{
+    margin-top: 3.3vw;
+}
+.forgetPass>div>.contact_icons>a{
+    width:16vw;
+}
+/* Dịch vụ */
+.services{
+    position: fixed;
+    top:90%;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    border-radius: 0;
+}
+/* Tiêu đề "Dịch vụ nổi bật" */
+.services>.title>strong{
+    display: none;
+}
+/* Ảnh đc demo */
+.services>img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+/* nút */
+.services>button{
+    display: none;
+}
+/* vùng thông tin bên dưới */
+.services>.footOfServices{
+    display: none;
+}
+/* nút tắt quảng cáo */
+.services>.closeAd{
+    display: block;
+    position: fixed;
+    font-size: 8vw;
+    bottom: 18vw;
+}
+/* Class dùng để loại bỏ 1 object nhưng chỉ dùng đc cho mobile */
+.displayNoneForMobile{
+    display: none;
+}

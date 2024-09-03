@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="DHB, Bank, DHB Bank, Thiet ke Web, HTML, CSS, JS">
+    <meta name="author" content="Truong Van Dzung, Le Trieu Huy">
+    <link rel="icon" href="images/icon/favicon/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/requests/styles.css">
+    <title>Gửi phiếu hỗ trợ</title>   
+</head>
+<body>
+    <div class="preloader">
+        <img src="images/icon/logo.png" alt="">
+    </div>
+    <nav>
+        <div class="nav-menu flex">
+            <div class="icon flex">
+                <a href="https://www.freepik.com/"><img src="images/icon/logo.png" alt="Designed by Freepik"></a>
+                <h1><a href="index.html">DHBank</a></h1>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="#">Gửi phiếu hỗ trợ</a></li>
+            </ul>
+            <div class="bars">
+                <i class="fa-solid fa-bars"></i>
+                <ul class="drop-down menu">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="requests.html">Gửi phiếu hỗ trợ</a></li>
+                </ul>
+            </div>
+        </div>                                          
+    </nav>
+    <nav>
+        <ul class="breadcrumbs">
+            <li class="breadcrumb_item">
+                <a href="index.html"><i class="fa-solid fa-house"></i></a>
+            </li>
+            <li class="breadcrumb_item">
+                <a href="faq.html">Trợ giúp</a>
+            </li>
+            <li class="breadcrumb_item">
+                <a href="requests.html">Gửi phiếu hỗ trợ</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="scrollToTop" type="button">
+        <div class="border">
+            <p>&uarr;</p>
+        </div>  
+    </div>
+    <section class="form">
+        <h1>Gửi yêu cầu hỗ trợ</h1>
+        <div id="myForm">
+            <form name="myForm" onsubmit="return validateForm()">
+                <div class="form-field">
+                    <label for="request_issue_type_select">Bạn đang gặp vấn đề gì?</label>
+                    <select name="issue" id="request_issue_type_select">
+                        <option value="1">Chuyển khoản</option>
+                        <option value="2">Giao dịch tài khoản</option>
+                        <option value="3">Mua hàng</option>
+                        <option value="4">Thanh toán</option>
+                        <option value="5">Trả góp</option>
+                        <option value="6">Lập hợp đồng</option>
+                        <option value="7">Bảo lưu/thu hồi</option>
+                        <option value="8">Chứng minh thư</option>
+                        <option value="9">Giấy tờ khác</option>
+                        <option value="10">Kỹ thuật</option>
+                        <option value="11">Khác</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="requester-email">Nhập email của bạn</label>
+                    <input name="requester-email" type="email" id="requester-email">  
+                </div>
+                <div class="form-field">
+                    <label for="request-subject">Tiêu đề</label>
+                    <input name="request-subject" type="text" id="requeste-subject">  
+                </div>
+                <div class="form-field">
+                    <label for="request-description">Mô tả về vấn đề bạn đang gặp phải</label>
+                    <textarea name="request-description" id="request-description"></textarea>  
+                </div>
+                <div class="form-field">
+                    <label for="request-attachments">File đính kèm</label>
+                    <div class="upload">
+                        <input class="inputfile" type="file" id="request-attachments" data-multiple-caption="Đã chọn {count} files" multiple>
+                        <label for="request-attachments">
+                            <i class="fa-solid fa-cloud-upload-alt"></i>
+                            <p>Tải tệp đính kèm</p>
+                        </label>
+                    </div>
+                    <div class="displayFiles"></div>
+                </div>
+                <div class="displayError"></div>
+                <input type="submit" class="submit" value="Submit">
+            </form> 
+        </div>
+        <div class="thankYouMessage">
+            <p>Cảm ơn bạn đã sử dụng DHBank.</p>
+            <p>Yêu cầu của bạn đã được gửi đi. Chúng tôi sẽ phản hồi bạn trong thời gian sớm nhất.</p>
+            <a href="index.html" class="close">Quay trở về trang chủ <<</a>
+        </div>           
+    </section>
+    <footer>
+        <div class="footer-about flex">
+            <div class="homenav">
+                <ul>
+                    <li><a href="about-us.html">Về DHB</a></li>
+                    <li><a href="index.html#services">Dịch vụ</a></li>
+                    <li><a href="index.html#news">Tin tức</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                </ul>
+            </div>
+            <div class="cskh">
+                <div class="guest">
+                    <p>Chăm sóc khách hàng</p>
+                    <h4>Địa chỉ: Khu dân cư Nhơn Đức, Nhà Bè, TP.HCM</h4>
+                    <h4>Hotline: 1988 8888 88</h4>
+                    <h4>Email: cskh@dhb.vn</h4>
+                </div>
+                <div class="business">
+                    <p>Liên hệ doanh nghiệp</p>
+                    <h4>Hotline: 1977 7777 77</h4>
+                    <h4>Email: business-care@dhb.vn</h4>
+                </div>
+            </div>
+            <div class="contacts">
+                <div class="app-contacts">
+                    <p>Kết nối với chúng tôi</p>
+                    <a href="#facebook"><img src="images/icon/social/facebook.png" alt="Facebook"/></a>
+                    <a href="#youtube"><img src="images/icon/social/youtube.png" alt="Youtube"></a>
+                    <a href="#discord"><img src="images/icon/social/discord.jpg" alt="Discord"></a>
+                </div>
+                <p>&copy;DHB Corporate 2000</p>
+            </div>
+        </div>
+        <div class="footer-icon flex">
+            <div class="icon flex">
+                <a href="https://www.freepik.com/"><img src="images/icon/logo.png" alt="Designed by Freepik"></a>
+                <h1>DHBank<span> - DHB Corporate product since 2000</span></h1>
+            </div>
+            <div></div>
+        </div>
+    </footer>
+    <script src="js/requests/script.js"></script>
+</body>
+</html>
