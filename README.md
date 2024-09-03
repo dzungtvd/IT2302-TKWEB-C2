@@ -36,6 +36,8 @@ This is a website system designed for our Web Design class project.
 ### Login Page
 
 * *Disclaimer: A front-end placeholder, cannot login or register yet*
+- Register/Login/Forgot password
+- Image slider: Display services
 
 ### Support 
 
@@ -57,7 +59,7 @@ This is a website system designed for our Web Design class project.
 
 ## Demo
 
-You can go to [link]() to visit the live version of the website. 
+You can go to [link](https://dzungtvd.github.io/IT2302-TKWEB-C2/) to visit the live version of the website. 
 
 ## Acknowledgments
 
@@ -71,13 +73,23 @@ Big thanks to
 
 ## Screenshots
 ### Main Page
+![Main Page](screenshots/mainpage.png)
 #### Services
+![Main Page's Services](screenshots/mainpage-services.png)
 #### News and Pop-up as Reader
+![Main Page's News](screenshots/mainpage-news.png)
+![Main Page's News Pop-up](screenshots/mainpage-news-popup.png)
 #### Events
-### Login 
+![Main Page's Events](screenshots/mainpage-events.png)
 ### About Us
+![About Us](screenshots/about-us.png)
+### Login 
+![Login](screenshots/login.png)
 ### FAQ
-### Support
+![FAQ](screenshots/faq.png)
+![FAQ Next picture](screenshots/faq-2.png)
+![Request Ticket](screenshots/request-ticket.png)
+![Request Ticket Next picture](screenshots/request-ticket-2.png)
 
 ## Contributing
 

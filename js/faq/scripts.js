@@ -31,8 +31,7 @@ function search() {
     for (let i = 0; i < faqs.length; i++) {
         if (faqs[i].querySelector('.question h3').textContent.toLowerCase().includes(input.toLowerCase())) {
             faqs[i].querySelector('.question h3').innerHTML = (faqs[i].querySelector('.question h3').textContent).replace(RegExp(input, "gi"), "<mark>$&</mark>");
-            return false;
         }
-        return false;
-    }
+    }    
+    return false;
 }

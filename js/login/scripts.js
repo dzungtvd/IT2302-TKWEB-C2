@@ -1,176 +1,141 @@
-let indexOfServices = 0;
-window.onload = function(){
+window.onload = function() {
     setTimeout(function() {
         document.querySelector(".preloader").style.display = "none";
     }, 1000);
-    // chuyển qua lại giữa đăng nhập và đăng kí
-    let dangki = document.getElementById("signUp");
-    let dangnhap = document.getElementById("loGin");
-    dangki.onclick = function(){
-        let inputDangNhap = document.querySelector(".login_Input");
-        let inputDangKi = document.querySelector(".signup_Input");
-        let nutQuenPass = document.querySelector(".forgetPass");
-        let contactIcons = document.querySelector("#announceAboutForgetPassword");
-        let announces = document.querySelectorAll(".announceAtInput");
-        contactIcons.classList.add("hidden"); // ẩn thông báo để khi quay lại đăng nhập sẽ ko hiện nữa
-        nutQuenPass.classList.add("displayNone"); // ẩn nút quên mật khẩu
-        for (let announce of announces){
-            announce.classList.add("hidden"); // ẩn tất cả thông báo nhập liệu
-        }
-        inputDangNhap.classList.add("displayNone");
-        inputDangKi.classList.remove("displayNone");
+    let slides = document.querySelectorAll('.showcaseSlides .scSlide');;
+    let prev = document.getElementById('prev');
+    let next = document.getElementById('next');
+    let slideActive = 0;
+    let lengthSlides = slides.length;
+    next.onclick = function() {
+        let slideActiveOld = document.querySelector('.showcaseSlides .scSlide.scActive');
+        slideActive =  slideActive + 1;
+        if (slideActive >= lengthSlides) {
+            slideActive = 0;
+        }   
+        slideActiveOld.classList.remove('scActive');
+        slides[slideActive].classList.add('scActive');
     }
-    dangnhap.onclick = function(){
-        let inputDangNhap = document.querySelector(".login_Input");
-        let inputDangKi = document.querySelector(".signup_Input");
-        let nutQuenPass = document.querySelector(".forgetPass");
-        let announces = document.querySelectorAll(".announceAtInputDK");
-        for (let announce of announces){
-            announce.classList.add("hidden"); // ẩn tất cả thông báo nhập liệu
+    prev.onclick = function() {
+        let slideActiveOld = document.querySelector('.showcaseSlides .scSlide.scActive');
+        slideActive = slideActive - 1;
+        if (slideActive < 0) {
+            slideActive = lengthSlides - 1;
         }
-        nutQuenPass.classList.remove("displayNone"); // hiện nút quên mật khẩu
-        inputDangNhap.classList.remove("displayNone");
-        inputDangKi.classList.add("displayNone");
+        slideActiveOld.classList.remove('scActive');
+        slides[slideActive].classList.add('scActive');
     }
-    // hiện thông báo khi ấn quên mật khẩu
-    let forgetPass = document.getElementById("forgetPass");
-    forgetPass.onclick = function(){
-        let announce = document.getElementById("announceAboutForgetPassword");
-        announce.classList.remove("hidden");
+    setInterval(function() {
+        let slideActiveOld = document.querySelector('.showcaseSlides .scSlide.scActive');
+        slideActive = slideActive + 1;
+        if (slideActive >= lengthSlides) {
+            slideActive = 0;
+        }
+        slideActiveOld.classList.remove('scActive');
+        slides[slideActive].classList.add('scActive');
+    }, 6000);
+    let popUpSlides = document.querySelectorAll('.popupSlides .popupSlide');
+    let popUpActive = 0;
+    let popUpLength = popUpSlides.length;
+    setInterval(function() {
+        let popUpActiveOld = document.querySelector('.popupSlide.popActive');
+        popUpActive = popUpActive + 1;
+        if (popUpActive >= popUpLength) {
+            popUpActive = 0;
+        }
+        popUpActiveOld.classList.remove('popActive');
+        popUpSlides[popUpActive].classList.add('popActive');
+    }, 6000);
+    let closePopUp = document.getElementById('closePopUp');
+    closePopUp.onclick = function() {
+        document.querySelector('.under').style.display = 'none';
     }
-    // chuyển qua lại giữa các dịch vụ nổi bật
-    let left_button = document.getElementById("leftButton");
-    let right_button = document.getElementById("rightButton");
-    left_button.onclick = function(){
-        if (indexOfServices===0){
-            indexOfServices=2;
-        }
-        else {
-            indexOfServices--;
-        }
-        changeServices(indexOfServices);
+    let registerWrapper = document.querySelector('.registerWrapper');
+    let loginWrapper = document.querySelector('.loginWrapper');
+    let forgotPasswordWrapper = document.querySelector('.forgotPasswordWrapper');
+    let register = document.getElementById('register');
+    let registerText = document.querySelector('.register');
+    let registerSorry = document.querySelector('.registerWrapper .sorryMessage');
+    let login = document.getElementById('login');
+    let login2 = document.getElementById('loginAlt');
+    let loginText = document.querySelector('.login');
+    let forgotPassword = document.getElementById('forgotPassword');
+    register.onclick = function() {
+        registerWrapper.style.display = "block";
+        registerWrapper.querySelector('form').style.display = "block";
+        registerWrapper.querySelector('form').style.animation = "fade-in 1s ease";
+        registerText.style.display = "none";
+        loginWrapper.style.display = "none";
+        loginText.style.display = "inline-block";
+        forgotPasswordWrapper.style.display = "none";
+    };
+    login.onclick = login2.onclick = function() {
+        registerWrapper.style.display = "none";
+        registerWrapper.querySelector('form').style.display = "none";
+        registerText.style.display = "inline-block";
+        registerSorry.style.display = "none";
+        loginWrapper.style.display = "block";
+        loginWrapper.style.animation = "fade-in 1s ease";
+        loginText.style.display = "none";
+        forgotPasswordWrapper.style.display = "none";
     }
-    right_button.onclick = function(){
-        if (indexOfServices===2){
-            indexOfServices=0;
-        }
-        else {
-            indexOfServices++;
-        }
-        changeServices(indexOfServices);
-    }
-    // Kiểm tra input tại phần đăng nhập
-    let submitButton = document.getElementById("submitButton");
-    let user = document.getElementById("user");
-    let pass = document.getElementById("pass");
-    let notRobot = document.getElementById("checkBox");
-    let notRobotChecked = document.querySelector("#notRobot>div>input").checked;
-    notRobotChecked = false;
-    user.onchange = pass.onchange = notRobot.onclick = function(){
-        if (user.value!=="" && pass.value!=="" && document.querySelector("#notRobot>div>input").checked){
-            submitButton.href ="index.html";
-        }
-        else {
-            submitButton.href="#";
-        }
-    }
-    submitButton.onclick = function(){
-        if (user.value===""){
-            document.getElementById("announceForUser").classList.remove("hidden");
-        }
-        else {
-            document.getElementById("announceForUser").classList.add("hidden");
-        }
-        if (pass.value===""){
-            document.getElementById("announceForPass").classList.remove("hidden");
-        }
-        else {
-            document.getElementById("announceForPass").classList.add("hidden");
-        }
-        notRobotChecked = document.querySelector("#notRobot>div>input").checked;
-        if (!notRobotChecked){
-            document.getElementById("announceForRobot").classList.remove("hidden");
-        }
-        else {
-            document.getElementById("announceForRobot").classList.add("hidden");
-        }
-    }
-    // kiểm tra input tại phần đăng kí
-    // Kiểm tra input tại phần đăng nhập
-    let submitButtonDK = document.getElementById("submitButtonDK");
-    let userDK = document.getElementById("userDK");
-    let passDK = document.getElementById("passDK");
-    let passAgainDK = document.getElementById("passAgainDK");
-    let notRobotDK = document.getElementById("checkBoxDK");
-    let notRobotCheckedDK = document.querySelector("#notRobotDK>div>input").checked;
-    notRobotCheckedDK = false;
-    userDK.onchange = passDK.onchange = passAgainDK.onchange = notRobotDK.onclick = function(){
-        if (userDK.value!=="" && passDK.value!=="" && document.querySelector("#notRobotDK>div>input").checked && passDK.value===passAgainDK.value){
-            submitButtonDK.href ="index.html";
-        }
-        else {
-            submitButtonDK.href="#";
-        }
-    }
-    submitButtonDK.onclick = function(){
-        if (userDK.value===""){
-            document.getElementById("announceForUserDK").classList.remove("hidden");
-        }
-        else {
-            document.getElementById("announceForUserDK").classList.add("hidden");
-        }
-        if (passDK.value===""){
-            document.getElementById("announceForPassDK").classList.remove("hidden");
-        }
-        else {
-            document.getElementById("announceForPassDK").classList.add("hidden");
-        }
-        if (passAgainDK.value!==passDK.value){
-            document.getElementById("announceForPassAgainDK").classList.remove("hidden");
-        }
-        else {
-            document.getElementById("announceForPassAgainDK").classList.add("hidden");
-        }
-        notRobotCheckedDK = document.querySelector("#notRobotDK>div>input").checked;
-        if (!notRobotCheckedDK){
-            document.getElementById("announceForRobotDK").classList.remove("hidden");
-        }
-        else {
-            document.getElementById("announceForRobotDK").classList.add("hidden");
-        }
-    }
-    // Nút tắt quảng cáo các dịch vụ
-    let buttonCloseAd = document.querySelector(".services>.closeAd");
-    buttonCloseAd.onclick = function(){
-        document.querySelector(".services").classList.add("displayNoneForMobile");
-        // document.querySelector(".services").classList.add("animate__animated");
-        // document.querySelector(".services").classList.add("animate__backOutDown");
+    forgotPassword.onclick = function() {
+        registerWrapper.style.display = "none";
+        registerWrapper.querySelector('form').style.display = "none";
+        loginWrapper.style.display = "none";
+        forgotPasswordWrapper.style.display = "block";
+        forgotPasswordWrapper.style.animation = "fade-in 1s ease";
     }
 }
-setInterval(function(){
-    if (indexOfServices!==2){
-        indexOfServices++;
-        changeServices(indexOfServices);
+
+function validateRegister() {
+    let email = document.forms["register"]["accountRegister"].value;
+    let name = document.forms["register"]["accountNameRegister"].value;
+    let password = document.forms["register"]["passwordRegister"].value;
+    let confirmPassword = document.forms["register"]["confirmPasswordRegister"].value;
+    let checkBox = document.forms["register"]["checkbox"].checked;
+    if (email === '' || name === '' || password === '' || confirmPassword === '' ||!checkBox) {
+        alert("Vui lòng điền vào tất cả chỗ trống và đồng ý Điều khoản!");
+        return false;
     }
-    else {
-        indexOfServices = 0;
-        changeServices(indexOfServices);
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Địa chỉ email không hợp lệ");
+        return false;
     }
-},8000);
-let changeServices = function(i){
-    if (i===0){
-        document.querySelector(".serviceName").innerText = "Du lịch & Đi lại";
-        document.querySelector(".serviceDetails").innerText = "Du lịch và đi lại với ưu đãi đặc biệt, hỗ trợ khẩn cấp 24/7.";
-        document.querySelector(".services>img").src = "images/serviceImage/serviceImage1.png";
+    if (password !== confirmPassword) {
+        alert("Mật khẩu không hợp lệ");
+        return false;
     }
-    else if (i===1){
-        document.querySelector(".serviceName").innerText = "Nạp điện thoại - Data";
-        document.querySelector(".serviceDetails").innerText = "Nạp tiền điện thoại và dữ liệu di động nhanh chóng.";
-        document.querySelector(".services>img").src = "images/serviceImage/serviceImage2.png";
+    let register = document.querySelector('.registerWrapper form');
+    let registerSorry = document.querySelector('.registerWrapper .sorryMessage');
+    register.style.display = "none";
+    registerSorry.style.display = "block";
+    registerSorry.style.animation = "fade-in 1s ease"
+    return false;
+}
+
+function validateLogin() {
+    let email = document.forms["login"]["accountLogin"].value;
+    let password = document.forms["login"]["passwordLogin"].value;
+    if (email === '' || password === '') {
+        alert("Vui lòng điền tất cả các mục!");
+        return false;
     }
-    else if (i===2){
-        document.querySelector(".serviceName").innerText = "Thanh toán hóa đơn";
-        document.querySelector(".serviceDetails").innerText = "Thanh toán hóa đơn tiện lợi và nhanh chóng, dễ dàng quản lý các khoản chi tiêu hàng tháng.";
-        document.querySelector(".services>img").src = "images/serviceImage/serviceImage3.png";
+    return false;
+}
+
+function validateForgotPassword() {
+    let email = document.forms["forgotPassword"]["accountForgot"].value;
+    if (email === '') {
+        alert("Vui lòng điền địa chỉ email!");
+        return false;
     }
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("Địa chỉ email không hợp lệ");
+        return false;
+    }
+    document.querySelector('.forgotPasswordWrapper .successMessage').style.display = "block";
+    return false;
 }
