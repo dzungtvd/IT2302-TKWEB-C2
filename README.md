@@ -35,7 +35,7 @@ This is a website system designed for our Web Design class project.
 
 ### Login Page
 
-* *Disclaimer: A front-end placeholder, cannot login or register yet*
+* *Disclaimer: Basically a front-end placeholder, cannot login or register yet*
 - Register/Login/Forgot password
 - Image slider: Display services
 
